@@ -1,4 +1,4 @@
-<h1 align="center">Travel Advisor 🛫</h1>
+<h1 align="center">Next Route 🛫</h1>
 
 A `React and Rails` App designed as a rating traveling app that offers a large selection of destinations throughout the world.
 
