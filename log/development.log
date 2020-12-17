@@ -23529,3 +23529,119 @@ Processing by DestinationsController#show as */*
 Completed 200 OK in 15ms (Views: 8.9ms | ActiveRecord: 5.3ms | Allocations: 5428)
 
 
+Started GET "/persist" for ::1 at 2020-12-17 18:18:26 -0500
+Started GET "/destinations" for ::1 at 2020-12-17 18:18:26 -0500
+Started GET "/destinations/25" for ::1 at 2020-12-17 18:18:26 -0500
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DestinationsController#index as */*
+  [1m[35m (19.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#persist as */*
+  [1m[35m (30.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DestinationsController#show as */*
+  Parameters: {"id"=>"25"}
+  [1m[36mDestination Load (56.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/controllers/destinations_controller.rb:6:in `index'
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDestination Load (2.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mReview Load (1.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 25]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_user'
+  ↳ app/controllers/destinations_controller.rb:10:in `show'
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 25]]
+[active_model_serializers]   [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:12:in `show'
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:47:in `persist'
+[active_model_serializers]   [1m[36mThingsToDo Load (19.2ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 25]]
+[active_model_serializers]   [1m[36mThingsToDo Load (15.4ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 25]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:12:in `show'
+[active_model_serializers]   [1m[36mBucketlist Load (0.7ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `bucketlist'
+[active_model_serializers]   [1m[36mAddJoiner Load (1.1ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 25]]
+[active_model_serializers]   [1m[36mAddJoiner Load (1.9ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 25]]
+[active_model_serializers]   [1m[36mAddJoiner Load (2.7ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."bucketlist_id" = $1[0m  [["bucketlist_id", 3]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:12:in `show'
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:7:in `map'
+[active_model_serializers] Rendered DestinationSerializer with ActiveModelSerializers::Adapter::Attributes (81.8ms)
+Completed 200 OK in 225ms (Views: 51.6ms | ActiveRecord: 123.8ms | Allocations: 49025)
+
+
+[active_model_serializers]   [1m[36mReview Load (1.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 26]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mDestination Load (1.4ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:47:in `persist'
+[active_model_serializers]   [1m[36mThingsToDo Load (1.3ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 26]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (89.4ms)
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+Completed 200 OK in 280ms (Views: 56.5ms | ActiveRecord: 140.8ms | Allocations: 56965)
+
+
+[active_model_serializers]   [1m[36mAddJoiner Load (7.8ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 26]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (2.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 27]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.3ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 27]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.4ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 27]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 28]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.3ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 28]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.7ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 28]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 29]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.3ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 29]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.3ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 29]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 30]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.3ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 30]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.3ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 30]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 31]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.2ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 31]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.3ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 31]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 32]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.2ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 32]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.2ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 32]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 33]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.2ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 33]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.2ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 33]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 34]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.2ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 34]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.2ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 34]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 35]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.2ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 35]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.2ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 35]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."destination_id" = $1[0m  [["destination_id", 36]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mThingsToDo Load (0.3ms)[0m  [1m[34mSELECT "things_to_dos".* FROM "things_to_dos" WHERE "things_to_dos"."destination_id" = $1[0m  [["destination_id", 36]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mAddJoiner Load (0.2ms)[0m  [1m[34mSELECT "add_joiners".* FROM "add_joiners" WHERE "add_joiners"."destination_id" = $1[0m  [["destination_id", 36]]
+[active_model_serializers]   ↳ app/controllers/destinations_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/review_serializer.rb:5:in `username'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (277.08ms)
+Completed 200 OK in 385ms (Views: 240.1ms | ActiveRecord: 136.3ms | Allocations: 114249)
+
+
