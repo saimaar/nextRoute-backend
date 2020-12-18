@@ -4,6 +4,7 @@ class DestinationsController < ApplicationController
         @destinations = Destination.all
 
         render json: @destinations
+
     end
 
     def show
