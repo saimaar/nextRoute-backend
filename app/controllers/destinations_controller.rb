@@ -9,7 +9,10 @@ class DestinationsController < ApplicationController
     def show
         @destination = Destination.find(params[:id])
         geocode = @destination.get_geocode.data
-        render json: @destination, geocode: geocode
+        lat = geocode["lat"]
+        lon = geocode["lon"]
+
+        render json: @destination, geocode: {lat:lat,lon: lon}
     end
 
 end
