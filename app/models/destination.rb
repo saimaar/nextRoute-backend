@@ -6,4 +6,10 @@ class Destination < ApplicationRecord
   has_many :users, through: :reviews
 
 
+  def get_geocode
+    Geocoder.search(self.name).find{|ele| ele.country.downcase === self.country_name.downcase}
+   end
+
+
+
 end

@@ -5,8 +5,7 @@ class DestinationSerializer < ActiveModel::Serializer
   has_many :add_joiners, dependent: :destroy
 
   def geocode
-    # byebug
-    Geocoder.search(self.object.name).find{|ele| ele.country.downcase === self.object.country_name.downcase}
+   @instance_options[:geocode]
   end
 
 end
