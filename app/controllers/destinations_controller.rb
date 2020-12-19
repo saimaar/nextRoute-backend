@@ -12,7 +12,7 @@ class DestinationsController < ApplicationController
         lat = geocode["lat"]
         lon = geocode["lon"]
 
-        render json: @destination, geocode: {lat:lat,lon: lon}
+        render json: @destination, geocode: [lat,lon]
     end
 
 end
