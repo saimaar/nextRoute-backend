@@ -7,8 +7,7 @@ class Destination < ApplicationRecord
 
 
   def get_geocode
-# byebug
-    Geocoder.search(self.name).find{|ele| ele.country.downcase === self.country_name.downcase}
+    Geocoder.search(self.name).find{|ele| ele.country.downcase() === self.country_name.downcase()}
    end
 
 
